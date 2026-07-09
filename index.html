@@ -154,7 +154,7 @@
             } catch (e) {
                 titleEl.innerText = "Ошибка конфигурации";
                 descEl.innerText = "Не удалось загрузить список целевых серверов.";
-                statusEl.innerText = "Ошибка: Сбой чтения urls.json.";
+                statusEl.innerText = "Ошибка: Сбой чтения";
                 statusEl.style.color = "#e74c3c";
                 if(loaderEl) loaderEl.style.display = 'none';
                 return;
@@ -162,7 +162,7 @@
 
             if (!targetUrls || targetUrls.length === 0) {
                 titleEl.innerText = "Список пуст";
-                descEl.innerText = "В конфигурационном файле urls.json не найдено адресов.";
+                descEl.innerText = "В конфигурационном файле не найдено адресов.";
                 statusEl.innerText = "Ошибка: Нет данных.";
                 statusEl.style.color = "#e74c3c";
                 if(loaderEl) loaderEl.style.display = 'none';
@@ -197,7 +197,7 @@
                         const currentUrl = targetUrls[i];
                         try {
                             const domainName = new URL(currentUrl).hostname;
-                            statusEl.innerText = `Анализ шлюза: ${domainName}...`;
+                            statusEl.innerText = `Анализ шлюза: api.ozon.ru/...`;
                             
                             const isAlive = await checkUrlAccessible(currentUrl);
                             if (isAlive) {
